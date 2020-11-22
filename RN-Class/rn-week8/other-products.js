@@ -1,25 +1,23 @@
-//No division operation allowed
-// keep substracting divisor from dividend, until dividend is zero or less than divisor
-function calculateProducsExceptCurrent_NoDivision(input){
-    var res = [];
-    var totalProduct = 1;
-    //calculate the total product
-    for(var i = 0; i < input.length; i++){
+function OtherProducts(input){
+    let result = [];
+    let totalProduct = 1;
+
+    for(let i = 0; i < input.length; i++){
       totalProduct = totalProduct * input[i];
     }
-    //populate the result array by "dividing" each value
-    for(var i = 0; i < input.length; i++){
-      var timesSubstracted = 0;
-      var divisor = input[i];
-      var dividend = totalProduct;
+
+    for(let i = 0; i < input.length; i++){
+      let timesSubstracted = 0;
+      let divisor = input[i];
+      let dividend = totalProduct;
       while(divisor <= dividend){
         dividend = dividend - divisor;
         timesSubstracted++;
       }
-      res.push(timesSubstracted);
+      result.push(timesSubstracted);
     }
-    return res;
+    return result;
   }
 
-  let test = calculateProducsExceptCurrent_NoDivision([1,2,3,4,5]);
+  let test = OtherProducts([1,2,3,4,5]);
   console.log(test)
